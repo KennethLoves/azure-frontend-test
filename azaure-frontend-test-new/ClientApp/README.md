@@ -1,27 +1,16 @@
-# azaure_frontend_test_new
+# Introduction 
+A template for an Angular Static Web App.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
+# Getting Started
+1. Install packages: **npm install**
+2. Serve the app: **ng serve** (App should be avaliable on localhost:4200)
 
-## Development server
+If you're wanting to connect to an Azure Function, you'll have to update the **proxy.conf.json** file to point to the Azure Function port. This will allow you to access the Azure Function from **localhost:4200/api**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Build and Test
 
-## Code scaffolding
+To build, use the following command: **npm run build**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To test, use the following command: **npm run test**
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+test

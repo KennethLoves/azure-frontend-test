@@ -1,14 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>azaure_frontend_test_new</title>
     <base href="/" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script type="text/javascript" charset="UTF-8">
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.charset = 'UTF-8';
+      script.src = '//cdn.appdynamics.com/adrum/adrum-latest.js';
+      // this gets the configuration data for each env
+      // this does introduce some measurable delay but we need it to by dynamic and NGINX isn't helping...
+      fetch('/config')
+        .then(response => response.json())
+        .then(data => {
+          window['adrum-start-time'] = new Date().getTime();
+          (function (config) {
+            config.appKey = data.AppDynamicsKey;
+            config.adrumExtUrlHttp = 'http://cdn.appdynamics.com';
+            config.adrumExtUrlHttps = 'https://cdn.appdynamics.com';
+            config.beaconUrlHttp = 'http://pdx-col.eum-appdynamics.com';
+            config.beaconUrlHttps = 'https://pdx-col.eum-appdynamics.com';
+            config.useHTTPSAlways = true;
+            config.spa = { spa2: { clearResTiming: true } };
+            config.isZonePromise = true;
+            config.angular = true;
+            // TODO: Determine what to put here...
+            // config.releaseId = "package json version ?";
+          })(window['adrum-config'] || (window['adrum-config'] = {}));
+          document.head.appendChild(script);
+        });
+    </script>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+    <title>CORE Sample UI</title>
   </head>
+
   <body>
-    <app-root>Loading...</app-root>
+    <app-root>
+      <noscript>You need to enable JavaScript to run this app.</noscript>
+
+      <div class="fade show" style="text-align: center; padding-top: calc(100vh / 2); height: 100vh">
+        <i class="spinner-grow spinner-grow-sm"></i>
+        <span class="m-1">Loading...</span>
+      </div>
+    </app-root>
+    <app-redirect></app-redirect>
   </body>
 </html>

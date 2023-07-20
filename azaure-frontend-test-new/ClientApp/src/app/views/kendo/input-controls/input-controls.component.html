@@ -1,0 +1,86 @@
+<c-row>
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header ngPreserveWhitespaces>
+        <strong>Kendo Input Controls</strong>
+        <div>
+          <small>Switch, TextBox, TextArea, CheckBox, RadioButton, NumericTextBox, MaskedTextBox,Dropdownlist</small>
+        </div>
+      </c-card-header>
+      <c-card-body>
+        <form [formGroup]="myForm">
+          <fieldset class="k-form-fieldset">
+            <kendo-formfield>
+              <kendo-label text="Switch">
+                <kendo-switch ngDefaultControl formControlName="switch" size="medium" onLabel="Yes" offLabel="No"> </kendo-switch>
+              </kendo-label>
+            </kendo-formfield>
+            <kendo-formfield>
+              <kendo-label text="Textbox"></kendo-label>
+              <kendo-textbox ngDefaultControl formControlName="textbox"></kendo-textbox>
+              <kendo-formhint>Textbox Hint</kendo-formhint>
+              <kendo-formerror>Error: Textbox Validation</kendo-formerror>
+            </kendo-formfield>
+            <kendo-formfield>
+              <kendo-label text="Textarea"></kendo-label>
+              <kendo-textarea #comments formControlName="textarea" placeholder="Leave a comment"></kendo-textarea>
+            </kendo-formfield>
+            <kendo-formfield showHints="always">
+              <kendo-label text="Checkbox"></kendo-label>
+              <div class="k-form-field-checkbox-wrap">
+                <input kendoCheckBox id="terms" type="checkbox" formControlName="checkbox" />
+                <kendo-label class="k-checkbox-label" for="terms" text="I agree with Terms & Conditions"></kendo-label>
+              </div>
+              <kendo-formhint> By checking this, you agree to our Terms&Conditions </kendo-formhint>
+            </kendo-formfield>
+            <div>
+              <div>
+                <kendo-label text="Radio Buttons"></kendo-label>
+              </div>
+              <kendo-label [for]="yes" text="Yes"></kendo-label>
+              <input type="radio" name="radio" value="Yes" #yes formControlName="radio" kendoRadioButton />
+              <kendo-label [for]="no" text="No"></kendo-label>
+              <input type="radio" name="radio" value="No" #no formControlName="radio" kendoRadioButton />
+              <kendo-label [for]="other" text="Other"></kendo-label>
+              <input type="radio" name="radio" value="Other" #other formControlName="radio" kendoRadioButton />
+            </div>
+            <kendo-formfield>
+              <kendo-label text="Numerictextbox"></kendo-label>
+              <kendo-numerictextbox #amount formControlName="numerictextbox" [min]="0"></kendo-numerictextbox>
+            </kendo-formfield>
+            <kendo-formfield>
+              <kendo-label class="k-form" text="Maskedtextbox"></kendo-label>
+              <kendo-maskedtextbox ngDefaultControl formControlName="maskedtextbox" mask="(999) 000-0000"></kendo-maskedtextbox>
+            </kendo-formfield>
+            <kendo-formfield>
+              <kendo-label class="k-form" text="Dropdownlist"></kendo-label>
+              <kendo-dropdownlist
+                [data]="listItems | async"
+                textField="name"
+                valueField="name"
+                [valuePrimitive]="true"
+                formControlName="dropdownlist">
+              </kendo-dropdownlist>
+            </kendo-formfield>
+            <div class="k-form-buttons">
+              <button kendoButton themeColor="base" (click)="submitForm()">Submit</button>
+              <button kendoButton themeColor="primary" (click)="submitForm()">Primary</button>
+              <button kendoButton themeColor="secondary" (click)="submitForm()">Secondary</button>
+              <button kendoButton themeColor="info" (click)="submitForm()">Info</button>
+              <button kendoButton themeColor="success" (click)="submitForm()">Success</button>
+              <button kendoButton themeColor="warning" (click)="submitForm()">Warnning</button>
+              <button kendoButton themeColor="error" (click)="submitForm()">Error</button>
+              <button kendoButton themeColor="dark" (click)="submitForm()">Dark</button>
+              <button kendoButton themeColor="light" (click)="submitForm()">Light</button>
+              <button kendoButton themeColor="inverse" (click)="submitForm()">Inverse</button>
+              <button kendoButton (click)="clearForm()">Clear</button>
+            </div>
+          </fieldset>
+        </form>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+<div *ngIf="isDevelopment">
+  {{ myForm.value | json }}
+</div>

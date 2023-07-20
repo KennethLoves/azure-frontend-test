@@ -1,0 +1,4 @@
+// fixes sticky footer from overlapping sidebar
+.container-default-footer {
+    z-index: 1029;
+}

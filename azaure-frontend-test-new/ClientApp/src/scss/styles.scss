@@ -1,0 +1,87 @@
+//based on loves.com and loves branding 2022
+@import url('https://fonts.googleapis.com/css?family=Muli');
+
+/* You can add global styles to this file, and also import other style files */
+// If you want to override variables do it here
+@import "variables";
+
+// Begin Core UI 
+$enable-ltr: true;
+$enable-rtl: false;
+
+@import "@coreui/coreui/scss/functions";
+@import "@coreui/coreui/scss/variables";
+
+// this order is based on core ui documentation 
+// https://coreui.io/docs/customize/sass/
+@import "@progress/kendo-theme-bootstrap/dist/all.scss";
+
+@import "@coreui/coreui/scss/maps";
+@import "@coreui/coreui/scss/mixins";
+@import "@coreui/coreui/scss/utilities";
+
+@import "@coreui/coreui/scss/root";
+@import "@coreui/coreui/scss/reboot";
+@import "@coreui/coreui/scss/type";
+@import "@coreui/coreui/scss/images";
+@import "@coreui/coreui/scss/containers";
+@import "@coreui/coreui/scss/grid";
+@import "@coreui/coreui/scss/tables";
+@import "@coreui/coreui/scss/forms";
+@import "@coreui/coreui/scss/buttons";
+@import "@coreui/coreui/scss/transitions";
+@import "@coreui/coreui/scss/dropdown";
+@import "@coreui/coreui/scss/button-group";
+@import "@coreui/coreui/scss/nav";
+@import "@coreui/coreui/scss/navbar";
+@import "@coreui/coreui/scss/card";
+@import "@coreui/coreui/scss/accordion";
+@import "@coreui/coreui/scss/breadcrumb";
+@import "@coreui/coreui/scss/pagination";
+@import "@coreui/coreui/scss/badge";
+@import "@coreui/coreui/scss/alert";
+@import "@coreui/coreui/scss/progress";
+@import "@coreui/coreui/scss/list-group";
+@import "@coreui/coreui/scss/close";
+@import "@coreui/coreui/scss/toasts";
+@import "@coreui/coreui/scss/modal";
+@import "@coreui/coreui/scss/tooltip";
+@import "@coreui/coreui/scss/popover";
+@import "@coreui/coreui/scss/carousel";
+@import "@coreui/coreui/scss/spinners";
+@import "@coreui/coreui/scss/offcanvas";
+@import "@coreui/coreui/scss/placeholders";
+
+@import "@coreui/coreui/scss/avatar";
+@import "@coreui/coreui/scss/callout";
+@import "@coreui/coreui/scss/footer";
+@import "@coreui/coreui/scss/header";
+@import "@coreui/coreui/scss/icon";
+@import "@coreui/coreui/scss/sidebar";
+@import "@coreui/coreui/scss/subheader";
+
+@import "@coreui/coreui/scss/helpers";
+
+@import "@coreui/coreui/scss/utilities/api";
+
+// Import Chart.js custom tooltips styles
+@import "@coreui/chartjs/scss/coreui-chartjs";
+
+// perfect scrollbar theming for use with [perfectScrollbar] directive
+//@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+// End Core UI 
+
+@import "layout";
+
+// Some temp fixes
+@import "fixes";
+
+// Prism.js
+@import "examples";
+
+// If you want to add something do it here
+@import "custom";
+
+// If you want to add something do it here
+@import "kendo-loves-theme";

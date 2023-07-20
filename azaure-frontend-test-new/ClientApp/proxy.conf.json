@@ -1,0 +1,14 @@
+{
+  "/config": {
+    "target": "http://localhost:4200",
+    "secure": false,
+    "pathRewrite": {
+      "^/config": "/assets/config/local.json"
+    }
+  },
+  "/api/*": {
+    "target": "http://127.0.0.1:7220/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

@@ -1,0 +1,23 @@
+<c-row>
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header ngPreserveWhitespaces>
+        <strong>Kendo Advanced Controls</strong>
+        <div>
+          <small>Datagrid, ???</small>
+        </div>
+      </c-card-header>
+      <c-card-body>
+        <form [formGroup]="myForm"></form>
+        <kendo-grid [kendoGridBinding]="(remoteData | async)!">
+          <kendo-grid-column field="id" title="Id"> </kendo-grid-column>
+          <kendo-grid-column field="name" title="Name"> </kendo-grid-column>
+          <kendo-grid-column field="description" title="Description"> </kendo-grid-column>
+        </kendo-grid>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+<div *ngIf="isDevelopment">
+  {{ myForm.value | json }}
+</div>

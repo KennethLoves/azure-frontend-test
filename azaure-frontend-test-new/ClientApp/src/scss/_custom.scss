@@ -1,0 +1,234 @@
+// Here you can add other styles
+
+.sidebar-nav .nav-link {
+    white-space: pre-wrap;
+}
+
+.sidebar {
+--cui-sidebar-nav-link-padding-y: 0.68rem;
+}
+
+/// Mixin for Components - Start
+/// -------------------------------
+
+@mixin loves-button-outline-color-text ($ls-button-color-border, $ls-button-color-text, $ls-button-text-active) {
+    border-color: $ls-button-color-border;
+    color: $ls-button-color-border;
+    &:hover {
+        background-color: $ls-button-color-border;
+        color: $loves-colors-white;
+    }
+    &.disabled {
+        opacity: $percentage-button-disabled;
+    }
+    &.active {
+        color: $ls-button-text-active;
+    }
+}
+@mixin loves-button-color-text($ls-button-color, $ls-button-color-border, $ls-button-color-text) {
+    background-color: $ls-button-color;
+    border-color: $ls-button-color-border;
+    color: $ls-button-color-text;
+    &:hover {
+        background-color: lighten($ls-button-color, 15%);
+        color: $ls-button-color-text;
+        cursor: pointer;
+    }
+    &.disabled {
+        opacity: $percentage-button-disabled;
+        cursor: none;
+    }
+    &.active {
+        color: $ls-button-color-text;
+    }
+}
+
+/// -------------------------------
+/// Mixin for Components - End
+
+// Kendo
+// Display and style ON/OFF Switch labels in Bootstrap 5
+// https://docs.telerik.com/blazor-ui/knowledge-base/switch-display-labels-in-bootstrap
+
+.k-switch-label-on,
+.k-switch-label-off {
+    display: inline;
+}
+
+.k-switch-label-off {
+    right: 5px;
+    color: $loves-colors-black;
+    text-transform: uppercase;
+}
+
+.k-switch {
+    width: 68px;
+    &.k-switch-on {
+        .k-switch-track {
+            background-color: $loves-button-success;
+            border-color: $loves-success-green-border;
+        }
+        .k-switch-label-on {
+            left: 7px;
+            color: $loves-colors-white;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.k-input-solid, .k-input-solid {
+    &:focus, &.k-focus {
+        border-color: $loves-warning-yellow-active;
+        color: rgba(50, 57, 65, 0.95);
+        background-color: $loves-colors-white;
+    }
+}
+
+/// Buttons - Start
+/// -------------------------------
+
+.k-button, .btn {
+    &.k-button-solid-primary, &.btn-primary {
+        @include loves-button-color-text($loves-button-primary, 
+        $loves-button-primary-border, 
+        $loves-colors-white);
+    }
+    &.btn-outline-primary {
+        @include loves-button-outline-color-text($loves-button-primary-border,
+        $loves-button-primary-border,
+        $loves-colors-white);
+    }
+    &.k-button-solid-secondary, &.btn-secondary {
+        @include loves-button-color-text($loves-button-secondary,
+        $loves-button-secondary-border,
+        $loves-colors-black);
+    }
+    &.btn-outline-secondary {
+        @include loves-button-outline-color-text($loves-button-secondary-border,
+        $loves-button-secondary-border,
+        $loves-colors-white);
+    }
+    &.k-button-solid-success, &.btn-sucess {
+        @include loves-button-color-text($loves-button-success,
+        $loves-button-success-border,
+        $loves-colors-white);
+    }
+    &.btn-outline-success {
+        @include loves-button-outline-color-text($loves-button-success-border,
+        $loves-button-success-border,
+        $loves-colors-white);
+    }
+    &.k-button-solid-warning, &.btn-warning {
+        @include loves-button-color-text($loves-button-warning,
+        $loves-button-warning-border,
+        $loves-colors-black);
+    }
+    &.btn-outline-warning {
+        @include loves-button-outline-color-text($loves-button-warning-border,
+        $loves-button-warning-border,
+        $loves-colors-white);
+    }
+    &.k-button-solid-error, &.btn-danger {
+        @include loves-button-color-text($loves-button-error,
+        $loves-button-error-border,
+        $loves-colors-white);
+    }
+    &.btn-outline-danger {
+        @include loves-button-outline-color-text($loves-button-error-border,
+        $loves-button-error-border,
+        $loves-colors-white);
+    }
+    &.k-button-solid-info, &.btn-info {
+        @include loves-button-color-text($loves-button-info,
+        $loves-button-info-border,
+        $loves-colors-white);
+    }
+    &.btn-outline-info {
+        @include loves-button-outline-color-text($loves-button-info-border,
+        $loves-button-info-border,
+        $loves-colors-white);
+    }
+    &.k-button-solid-base, &.btn-info {
+        @include loves-button-color-text($loves-button-secondary,
+        $loves-button-secondary-border,
+        $loves-colors-black);
+    }
+    &.btn-outline-info {
+        @include loves-button-outline-color-text($loves-button-secondary-border,
+        $loves-button-secondary-border,
+        $loves-colors-black);
+    }
+}
+
+/// -------------------------------
+/// Buttons - End
+
+
+.header {
+    &.header-sticky {
+        padding: 0;
+        c-container {
+            padding: 10px;
+            &:first-child {
+                height: $header-height;
+                background-color: $loves-colors-primary;
+            }
+        }
+        c-header-divider {
+            margin: 0;
+        }
+    }
+}
+
+.breadcrumb {
+    &.breadcrumb-item {
+        a {
+            color: $loves-warning-yellow-active;
+        }
+        &.active {
+            color: $loves-colors-darkgray;
+        }
+    }
+}
+
+c-alert[color="danger"] {
+    background-color: $loves-alert-banner-error;
+    border: 1px solid $loves-alert-banner-error-border;
+    color: $loves-colors-black;
+    padding: 2px 5px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    span {
+        color: $loves-alert-banner-error-icon;
+        padding: 0 7px 0 0;
+        font-size: 1.25rem;
+    }
+}
+
+
+
+// Kendo Dropdown List
+kendo-dropdownlist {
+    &.k-picker-solid {
+        background-color: $loves-colors-white;
+        color: $loves-colors-black;
+        &:hover {
+            background-color: lighten($loves-colors-primary, 65%);
+            border: 1px solid $loves-button-warning-border;
+        }
+        &:focus {
+            background-color: lighten($loves-colors-primary, 65%);
+            border: 1px solid $loves-button-warning-border;
+        }
+    }
+}
+
+// Love's Custom Control
+
+
+
+
+// Love's Style Fix
+.loves-high-fix-header-nav {
+    padding: 1px;
+}
